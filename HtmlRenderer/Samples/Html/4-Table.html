@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>HTML Document Template</title>
+    <style>
+        table, tr, th {
+            border-style: solid;
+            border-style: outset;
+        }
+
+        td, th {
+            border-style: inset;
+        }
+    </style>
+</head>
+<body>
+<p>Таблица</p>
+<table>
+    <tr>
+        <td>Первый</td>
+        <td>Второй</td>
+        <td>Третий</td>
+    </tr>
+    <tr>
+        <td>Четвёртый</td>
+        <td>Пятый</td>
+        <td>Шестой</td>
+    </tr>
+    <tr>
+        <td>Седьмой</td>
+        <td>Восьмой</td>
+        <td>Девятый</td>
+    </tr>
+</table>
+<p>Таблица с форматированием</p>
+<table>
+    <tr align="middle">
+        <td><p>Абзац</p></td>
+        <td>
+            <ul>
+                <li>Первый</li>
+                <li>Второй</li>
+            </ul>
+        </td>
+        <td style="background-color:red;color:white">Третий</td>
+    </tr>
+    <tr align="right" valign="bottom">
+        <td><h1>Заголовок</h1></td>
+        <td>Пятый</td>
+    </tr>
+</table>
+<p>Таблицы с объединением ячеек</p>
+<table width="100%">
+    <tr>
+        <td rowspan="2">
+            Первый
+        </td>
+        <td colspan="2">
+            Второй
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Третий
+        </td>
+        <td rowspan="2">
+            Четвёртый
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            Пятый
+        </td>
+    </tr>
+</table>
+</body>
+</html>
