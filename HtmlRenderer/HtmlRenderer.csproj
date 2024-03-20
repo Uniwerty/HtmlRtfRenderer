@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.6"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.6"/>
+        <PackageReference Include="Avalonia.HtmlRenderer" Version="11.0.0" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6"/>
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6"/>
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.6"/>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\RtfToHtml\RtfToHtml.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="Samples\Html\example.html" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Samples\Rtf\" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="Samples\Html\Text.html" />
+      <EmbeddedResource Include="Samples\Html\1-Text.html" />
+      <None Remove="Samples\Html\List.html" />
+      <EmbeddedResource Include="Samples\Html\2-List.html" />
+      <None Remove="Samples\Html\Table.html" />
+      <EmbeddedResource Include="Samples\Html\4-Table.html" />
+      <None Remove="Samples\Html\Link.html" />
+      <EmbeddedResource Include="Samples\Html\3-Link.html" />
+      <None Remove="Samples\Html\Image.html" />
+      <EmbeddedResource Include="Samples\Html\5-Image.html" />
+      <None Remove="Samples\Html\lake.jpg" />
+      <None Remove="Samples\Html\6-Video.html" />
+      <EmbeddedResource Include="Samples\Html\6-Video.html" />
+      <None Remove="Samples\Rtf\1-Text.rtf" />
+      <EmbeddedResource Include="Samples\Rtf\1-Text.rtf" />
+      <None Remove="Samples\Rtf\2-List.rtf" />
+      <EmbeddedResource Include="Samples\Rtf\2-List.rtf" />
+      <None Remove="Samples\Rtf\3-Link.rtf" />
+      <EmbeddedResource Include="Samples\Rtf\3-Link.rtf" />
+      <None Remove="Samples\Rtf\4-Table.rtf" />
+      <EmbeddedResource Include="Samples\Rtf\4-Table.rtf" />
+      <None Remove="Samples\Rtf\5-Image.rtf" />
+    </ItemGroup>
+</Project>

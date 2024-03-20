@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:HtmlRenderer.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:html="clr-namespace:TheArtOfDev.HtmlRenderer.Avalonia;assembly=Avalonia.HtmlRenderer"
+        xmlns:models="clr-namespace:HtmlRenderer.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="HtmlRenderer.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        WindowState="Maximized"
+        Title="HTML and RTF Renderer">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+        <ScrollViewer DockPanel.Dock="Left">
+            <ItemsControl ItemsSource="{Binding SamplesList}">
+                <ItemsControl.DataTemplates>
+                    <DataTemplate x:DataType="models:Sample">
+                        <Button Margin="0"
+                                Width="150"
+                                Content="{Binding Name}"
+                                Click="RenderSampleFileOnClick" />
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+        </ScrollViewer>
+        <Grid RowDefinitions="*, *">
+            <DockPanel Grid.Row="0"
+                       Margin="10">
+                <TextBlock DockPanel.Dock="Top"
+                           Margin="0 5">
+                    Write the code:
+                </TextBlock>
+                <StackPanel DockPanel.Dock="Bottom"
+                            Orientation="Horizontal">
+                    <Button Margin="2 0" Click="RenderHtmlButtonOnClick">Render HTML</Button>
+                    <Button Margin="2 0" Click="RenderRtfButtonOnClick">Render RTF</Button>
+                </StackPanel>
+                <TextBox Name="HtmlCodeBox"
+                         AcceptsReturn="True" />
+            </DockPanel>
+            <Border Grid.Row="1"
+                    Margin="10"
+                    BorderThickness="1"
+                    BorderBrush="DimGray"
+                    CornerRadius="2">
+                <html:HtmlPanel Margin="10"
+                                Name="HtmlPanel" />
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
