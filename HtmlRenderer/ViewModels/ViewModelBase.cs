@@ -2,6 +2,4 @@
 
 namespace HtmlRenderer.ViewModels;
 
-public class ViewModelBase : ReactiveObject
-{
-}
+public class ViewModelBase : ReactiveObject;

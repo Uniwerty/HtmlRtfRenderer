@@ -10,7 +10,7 @@ public static class RtfToHtmlConverter
     {
         var document = new Document();
         document.LoadFromStream(new MemoryStream(encoding.GetBytes(rtfText)), FileFormat.Rtf);
-        MemoryStream outputStream = new MemoryStream();
+        var outputStream = new MemoryStream();
         document.SaveToStream(outputStream, FileFormat.Html);
         outputStream.Position = 0;
         return new StreamReader(outputStream).ReadToEnd();

@@ -11,7 +11,7 @@ namespace HtmlRenderer.Views;
 
 public partial class MainWindow : Window
 {
-    private static Encoding _defaultEncoding = Encoding.UTF8;
+    private static readonly Encoding DefaultEncoding = Encoding.UTF8;
 
     public MainWindow()
     {
@@ -27,8 +27,7 @@ public partial class MainWindow : Window
     {
         if (HtmlCodeBox.Text != null)
         {
-            HtmlPanel.Text = RtfToHtmlConverter.Convert(HtmlCodeBox.Text, _defaultEncoding);
-            Console.WriteLine(HtmlPanel.Text);
+            HtmlPanel.Text = RtfToHtmlConverter.Convert(HtmlCodeBox.Text, DefaultEncoding);
         }
     }
 
